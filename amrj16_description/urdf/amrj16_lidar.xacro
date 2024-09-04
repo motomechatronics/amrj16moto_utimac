@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="amrj16">
+
+ <link name="lidar">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <geometry>
+                        <mesh filename="package://amrj16_description/models/meshes/amrj16_rplidarS2.dae"/>
+                    </geometry>
+            </visual>
+
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                       <mesh filename="package://amrj16_description/models/meshes/amrj16_rplidarS2.dae"/>
+                </geometry>
+            </collision>   
+
+            <inertial>
+                <mass value="0.001"/>
+                <origin rpy="0 0 0" xyz="0 0 0"/>
+                <inertia 
+                    ixx="0.000025441" ixy="0" ixz="0" iyy="0.00002543" iyz="-0.0000000017817" izz="0.000028616"/>            
+            </inertial> 
+    </link>
+
+    <joint name="chassis_lidar_joint" type="fixed">
+         <!-- <origin rpy="0 0 0" xyz="0.703 0 0.0265"/>    -->
+         <origin rpy="${lidarPitchAttitude_rad} 0 1.5707" xyz=" ${lidarXPos_m} 0  ${lidarZPos_m}"/>  
+        <parent link="chassis" />
+        <child link="lidar" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <gazebo reference="lidar">
+        <sensor name="sensor_ray_rplidars2" type="ray">
+            <pose>0 0 0 0 0 0</pose>
+            <!-- <pose>0 0 0 ${lidarPitchAttitude_rad} 0 0</pose>-->
+            <ray>
+            <scan>
+                <horizontal>
+                <samples>${lidarSamples}</samples>
+                <resolution>${lidarResolution}</resolution>
+                <min_angle>${lidarMinAngle_rad}</min_angle>
+                <max_angle>${lidarMaxAngle_rad}</max_angle>
+                </horizontal>
+            </scan>
+            <range>
+                <min>${lidarRangeMin_m}</min>
+                <max>${lidarRangeMax_m}</max>
+            </range>
+            </ray>
+            <always_on>true</always_on>
+            <visualize>true</visualize>
+            <update_rate>40.0</update_rate>
+            <plugin name="laser" filename="libgazebo_ros_ray_sensor.so">
+            <ros>
+                <namespace>/${ns}</namespace>
+                <remapping>~/out:=laser_scan</remapping>
+            </ros>
+            <output_type>sensor_msgs/LaserScan</output_type>
+            <frame_name>lidar</frame_name> <!-- new line-->
+            </plugin>
+        </sensor>
+    </gazebo>
+   
+</robot>
+

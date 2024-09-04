@@ -1,0 +1,139 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="amrj16">
+
+   <!-- caster hub xacro -->
+    <xacro:macro name="caster_hub" params="position">
+    <link name="${position}_caster_hub">            
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://amrj16_description/models/meshes/amrj16_caster_hub.dae"/>
+                </geometry>
+        </visual>
+
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+                 <mesh filename="package://amrj16_description/models/meshes/amrj16_caster_hub.dae"/>
+        </geometry>
+    </collision>   
+
+    <inertial>
+        <mass value="0.140"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia 
+            ixx="0.00006" ixy="0.000000359" ixz="0.000014875" iyy="0.000059805" iyz="-0.00000077564" izz="0.000042536"/>            
+    </inertial> 
+
+    </link>
+    </xacro:macro>
+    
+    <!-- chassis caster hub joint -->
+    <xacro:macro name="chassis_caster_hub_joint" params="position">
+    <joint name="chassis_${position}_caster_hub_joint" type="continuous">    
+        <xacro:if value="${position == 'front_right'}">
+            <xacro:property name="X" value="${frontRightCasterHubXPos_m}"/>
+            <xacro:property name="Y" value="${frontRightCasterHubYPos_m}"/>
+            <xacro:property name="Z" value="${frontRightCasterHubZPos_m}"/>
+            <xacro:property name="yaw" value="${frontRightCasterHubYawAttitude_rad}"/>
+        </xacro:if>
+
+        <xacro:if value="${position == 'rear_right'}">
+            <xacro:property name="X" value="${rearRightCasterHubXPos_m}"/>
+            <xacro:property name="Y" value="${rearRightCasterHubYPos_m}"/>
+            <xacro:property name="Z" value="${rearRightCasterHubZPos_m}"/>
+            <xacro:property name="yaw" value="${rearRightCasterHubYawAttitude_rad}"/>
+        </xacro:if>
+
+        <xacro:if value="${position == 'front_left'}">
+            <xacro:property name="X" value="${frontLeftCasterHubXPos_m}"/>
+            <xacro:property name="Y" value="${frontLeftCasterHubYPos_m}"/>
+            <xacro:property name="Z" value="${frontLeftCasterHubZPos_m}"/>
+            <xacro:property name="yaw" value="${frontLeftCasterHubYawAttitude_rad}"/>
+        </xacro:if>
+
+        <xacro:if value="${position == 'rear_left'}">
+            <xacro:property name="X" value="${rearLeftCasterHubXPos_m}"/>
+            <xacro:property name="Y" value="${rearLeftCasterHubYPos_m}"/>
+            <xacro:property name="Z" value="${rearLeftCasterHubZPos_m}"/>
+            <xacro:property name="yaw" value="${rearLeftCasterHubYawAttitude_rad}"/>
+        </xacro:if>
+
+        <origin xyz="${X} ${Y} ${Z}" rpy="0 0 ${yaw}"/> 
+        <parent link="chassis"/>
+        <child link="${position}_caster_hub"/> 
+        <axis xyz="0 0 1"/>
+        <limit effort="1000.0" velocity="100.0" />
+        <dynamics damping="0.0" friction="0.1"/>
+    </joint>
+    </xacro:macro>
+
+    <!-- caster wheel xacro -->
+    <xacro:macro name="caster_wheel" params="position">
+       <link name="${position}_caster_wheel">            
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://amrj16_description/models/meshes/amrj16_caster_wheel.dae"/>
+                </geometry>
+        </visual>
+
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+                 <mesh filename="package://amrj16_description/models/meshes/amrj16_caster_wheel.dae"/>
+        </geometry>
+    </collision>   
+
+    <inertial>
+        <mass value="0.189"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia 
+            ixx="0.000025441" ixy="0" ixz="0" iyy="0.00002543" iyz="-0.0000000017817" izz="0.000028616"/>            
+    </inertial> 
+
+    </link>
+
+    <gazebo reference="${position}_caster_wheel">
+        <kp>1000000000000000000000000000.0</kp>
+        <kd>1000000000000000000000000000.0</kd>
+        <mu1>10.0</mu1>
+        <mu2>10.0</mu2>      
+    </gazebo>
+    </xacro:macro>
+
+    <xacro:macro name="caster_hub_wheel_joint" params="position">
+    <joint name="${position}_caster_hub_wheel_joint" type="continuous">
+        <origin xyz="${casterWheelXPos_m} ${casterWheelYPos_m} ${casterWheelZPos_m}" rpy="0 ${casterWheelPitchAttitude_rad} 0"/>
+        <parent link="${position}_caster_hub"/>
+        <child link="${position}_caster_wheel"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="1000.0" velocity="100.0" />
+        <dynamics damping="0.0" friction="0.1"/>
+    </joint>
+    </xacro:macro>
+
+    <!-- front_right_caster -->
+    <xacro:caster_hub position="front_right"/> 
+    <xacro:chassis_caster_hub_joint position="front_right"/> 
+    <xacro:caster_wheel position="front_right"/>
+    <xacro:caster_hub_wheel_joint position="front_right"/>
+
+    <!-- rear_right_caster -->
+    <xacro:caster_hub position="rear_right"/> 
+    <xacro:chassis_caster_hub_joint position="rear_right"/> 
+    <xacro:caster_wheel position="rear_right"/>
+    <xacro:caster_hub_wheel_joint position="rear_right"/>
+                                  
+    <!-- front_left_caster -->
+    <xacro:caster_hub position="front_left"/> 
+    <xacro:chassis_caster_hub_joint position="front_left"/> 
+    <xacro:caster_wheel position="front_left"/>
+    <xacro:caster_hub_wheel_joint position="front_left"/>
+
+    <!-- rear_left_caster -->
+    <xacro:caster_hub position="rear_left"/> 
+    <xacro:chassis_caster_hub_joint position="rear_left"/> 
+    <xacro:caster_wheel position="rear_left"/>
+    <xacro:caster_hub_wheel_joint position="rear_left"/>
+
+    </robot>

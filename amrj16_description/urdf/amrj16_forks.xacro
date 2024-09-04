@@ -1,0 +1,36 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="amrj16">
+
+    <!-- forks-->
+    <link name="forks">            
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://amrj16_description/models/meshes/amrj16_forks.dae"/>
+                </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+               <mesh filename="package://amrj16_description/models/meshes/amrj16_forks.dae"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <mass value="5.5"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.681" ixy="0.000002" ixz="0.00000003" iyy="0.197" iyz="0.000075998" izz="0.8496"/>            
+        </inertial>
+    </link>
+
+    <!-- chassis forks joint-->
+    <joint name="chassis_forks_joint" type="prismatic">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="chassis"/>
+        <child link="forks"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="1000.0" lower="0" upper="0.035" velocity="0.5"/>
+        <dynamics damping="0.1" friction="0.1"/>
+    </joint>
+
+    </robot>

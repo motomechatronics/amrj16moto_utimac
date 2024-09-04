@@ -1,0 +1,106 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="amrj16">
+
+<!-- amrj16 layout-->
+
+<!--                       ******  right                   
+                        *********  
+                        *                 
+                * * * ***
+                *     ***
+                *     *                z
+                *     *       x  < - - O
+       front    *     *                |   rear
+                *     *                v
+                *     *                y
+                *     ***
+                * * * ***
+                        *
+                        **********
+                            ******  left
+                           
+-->
+<!-- sensors namespace -->
+<xacro:property name="ns" value="amrj16"/>
+
+<!-- chassis geometrical dimensions [m] -->
+<!-- driving wheels -->
+<xacro:property name="drivingWheelRadius_m" value="0.103"/>
+
+<xacro:property name="rightWheelXPos_m" value="0.0"/>
+<xacro:property name="rightWheelYPos_m" value="-0.5456"/>
+<xacro:property name="rightWheelZPos_m" value="${drivingWheelRadius_m}"/>
+<xacro:property name="rightWheelRollAttitude_rad" value="-1.5707"/>
+
+<xacro:property name="leftWheelXPos_m" value="0.0"/>
+<xacro:property name="leftWheelYPos_m" value="${-rightWheelYPos_m}"/>
+<xacro:property name="leftWheelZPos_m" value="${drivingWheelRadius_m}"/>
+<xacro:property name="leftWheelRollAttitude_rad" value="${rightWheelRollAttitude_rad}"/>
+
+<!-- caster hub -->
+<!-- front-right -->
+<xacro:property name="frontRightCasterHubXPos_m" value="0.553"/>
+<xacro:property name="frontRightCasterHubYPos_m" value="-0.186"/>
+<xacro:property name="frontRightCasterHubZPos_m" value="0.053"/>
+<xacro:property name="frontRightCasterHubYawAttitude_rad" value="1.5707"/>
+<!-- front-left -->
+<xacro:property name="frontLeftCasterHubXPos_m" value="${frontRightCasterHubXPos_m}"/>
+<xacro:property name="frontLeftCasterHubYPos_m" value="${-frontRightCasterHubYPos_m}"/>
+<xacro:property name="frontLeftCasterHubZPos_m" value="${frontRightCasterHubZPos_m}"/>
+<xacro:property name="frontLeftCasterHubYawAttitude_rad" value="1.5707"/>
+<!-- rear-right -->
+<xacro:property name="rearRightCasterHubXPos_m" value="${-frontRightCasterHubXPos_m}"/> 
+<xacro:property name="rearRightCasterHubYPos_m" value="${frontRightCasterHubYPos_m}"/>
+<xacro:property name="rearRightCasterHubZPos_m" value="${frontRightCasterHubZPos_m}"/>
+<xacro:property name="rearRightCasterHubYawAttitude_rad" value="${frontRightCasterHubYawAttitude_rad}"/>
+<!-- rear-left -->
+<xacro:property name="rearLeftCasterHubXPos_m" value="${-frontRightCasterHubXPos_m}"/> 
+<xacro:property name="rearLeftCasterHubYPos_m" value="${-frontRightCasterHubYPos_m}"/>
+<xacro:property name="rearLeftCasterHubZPos_m" value="${frontRightCasterHubZPos_m}"/>
+<xacro:property name="rearLeftCasterHubYawAttitude_rad" value="${frontRightCasterHubYawAttitude_rad}"/>
+
+<!-- caster wheel -->
+<xacro:property name="casterWheelXPos_m" value="0.0"/>
+<xacro:property name="casterWheelYPos_m" value="0.015"/>
+<xacro:property name="casterWheelZPos_m" value="-0.0325"/>
+<xacro:property name="casterWheelPitchAttitude_rad" value="1.5707"/>
+
+<!-- sensors -->
+<!-- lidar -->
+<xacro:property name="lidarUpSideDown" value="true"/>
+<xacro:property name="lidarXPos_m" value="0.703"/> <!-- 0.703 -->
+<xacro:property name="lidarYPos_m" value="0.0"/>
+<xacro:property name="lidarZPos_m" value="0.0265"/>
+<xacro:property name="lidarSamples" value="500"/>
+<xacro:property name="lidarResolution" value="1"/>
+<xacro:property name="lidarMinAngle_rad" value="-3.14159"/>
+<xacro:property name="lidarMaxAngle_rad" value="3.14159"/>
+<xacro:property name="lidarRangeMin_m" value="0.05"/>
+<xacro:property name="lidarRangeMax_m" value="50.0"/>
+
+<xacro:if value="${lidarUpSideDown}">
+  <!-- Laser Sensor is up side down-->
+  <xacro:property name="lidarPitchAttitude_rad" value="3.14159265359"/>
+</xacro:if>
+<xacro:unless value="${lidarUpSideDown}">
+ <!-- Laser Sensor is right side up -->
+    <xacro:property name="lidarPitchAttitude_rad" value="0.0"/>
+</xacro:unless>
+
+<!-- deep camera -->
+<xacro:property name="deepCameraXPos_m" value="0.790"/> 
+<xacro:property name="deepCameraYPos_m" value="0.0"/>
+<xacro:property name="deepCameraZPos_m" value="0.2465"/>
+<xacro:property name="deepCamerarPos_m" value="0"/> 
+<xacro:property name="deepCamerapPos_m" value="0.0"/>
+<xacro:property name="deepCamerayPos_m" value="0"/>
+
+<!-- rgb cameras -->
+<xacro:property name="rightRGBCameraXPos_m" value="-0.6022"/> 
+<xacro:property name="rightRGBCameraYPos_m" value="0.186"/>
+<xacro:property name="rightRGBCameraZPos_m" value="0.068"/>
+
+<xacro:property name="leftRGBCameraXPos_m" value="-0.6022"/> 
+<xacro:property name="leftRGBCameraYPos_m" value="-0.186"/>
+<xacro:property name="leftRGBCameraZPos_m" value="0.068"/>
+
+</robot>

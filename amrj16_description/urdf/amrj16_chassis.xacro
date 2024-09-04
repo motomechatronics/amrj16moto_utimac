@@ -1,0 +1,33 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="amrj16">
+
+    <!-- chassis-->
+  <link name="chassis">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>        
+       <mesh filename="package://amrj16_description/models/meshes/amrj16_chassis.dae"/> 
+      </geometry>     
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>       
+        <mesh filename="package://amrj16_description/models/meshes/amrj16_chassis.dae"/> 
+      </geometry>
+    </collision>
+
+    <inertial>
+        <mass value="34.2"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="10.164712" ixy="0.021460923" ixz="-0.0060724714" iyy="3.4403550" iyz="1.7125796" izz="12.572506"/>           
+    </inertial>
+
+  </link>
+
+  <joint name="base_link_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="base_link" />
+    <child link="chassis" />
+  </joint>
+
+</robot>

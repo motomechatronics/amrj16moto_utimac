@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="amrj16">
+
+<!-- RGB cameras -->
+    <link name="rgb_camera_dx">
+    </link>
+
+    <joint name="rgb_camera_dx_joint" type="fixed">
+        <origin rpy="0 0 3.1414" xyz=" ${rightRGBCameraXPos_m}  ${rightRGBCameraYPos_m}  ${rightRGBCameraZPos_m}"/>  
+        <parent link="chassis" />
+        <child link="rgb_camera_dx" />
+        <axis xyz="0 0 0"/>
+    </joint>
+
+    <gazebo reference="rgb_camera_dx">
+        <sensor name="${ns}_camera_dx" type="wideanglecamera">
+          <camera>
+            <horizontal_fov>6.283</horizontal_fov>
+            <image>
+              <width>320</width>
+              <height>240</height>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+            <lens>
+              <type>custom</type>
+              <custom_function>
+                <c1>1.05</c1>
+                <c2>4</c2>
+                <f>1.0</f>
+                <fun>tan</fun>
+              </custom_function>
+              <scale_to_hfov>true</scale_to_hfov>
+              <cutoff_angle>3.1415</cutoff_angle>
+              <env_texture_size>512</env_texture_size>
+            </lens>
+            <always_on>1</always_on>
+            <update_rate>30</update_rate>
+          </camera>
+          <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <cameraName>rgb_camera</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>rgb_camera_dx</frameName>
+            <hackBaseline>0.07</hackBaseline>
+          </plugin>
+        </sensor>
+    </gazebo>
+
+    <link name="rgb_camera_sx">
+    </link>
+
+    <joint name="rgb_camera_sx_joint" type="fixed">
+        <origin rpy="0 0 3.1414" xyz=" ${leftRGBCameraXPos_m}  ${leftRGBCameraYPos_m}  ${leftRGBCameraZPos_m}"/>
+        <parent link="chassis" />
+        <child link="rgb_camera_sx" />
+        <axis xyz="0 0 0"/>
+    </joint>
+
+    <gazebo reference="rgb_camera_sx">  
+        <sensor name="${ns}_camera_sx" type="wideanglecamera">
+          <camera>
+            <horizontal_fov>6.283</horizontal_fov>
+            <image>
+              <width>320</width>
+              <height>240</height>
+            </image>
+            <clip>
+              <near>0.1</near>
+              <far>100</far>
+            </clip>
+            <lens>
+              <type>custom</type>
+              <custom_function>
+                <c1>1.05</c1>
+                <c2>4</c2>
+                <f>1.0</f>
+                <fun>tan</fun>
+              </custom_function>
+              <scale_to_hfov>true</scale_to_hfov>
+              <cutoff_angle>3.1415</cutoff_angle>
+              <env_texture_size>512</env_texture_size>
+            </lens>
+            <always_on>1</always_on>
+            <update_rate>30</update_rate>
+          </camera>
+          <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+            <cameraName>rgb_camera_sx</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>rgb_camera_sx</frameName>
+            <hackBaseline>0.07</hackBaseline>
+          </plugin>
+        </sensor>
+    </gazebo>
+   
+</robot>
