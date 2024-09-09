@@ -9,53 +9,76 @@ import xacro
 def generate_launch_description():
 
     ####### DATA INPUT ##########
-    urdf_file = 'amrj16.urdf'
+    #urdf_file = 'amrj16.urdf'
     #xacro_file = "amrj16_main.xacro"
+    xacro_file = "amrj16.xacro"
     package_description = "amrj16_description"
+    robot_name_1 = "amrj16_0"
+    #robot_name_2 = "amrj16_1"
+    # Boolean flag to enable or disable joint_state_publisher_gui
+    use_joint_state_publisher_gui = False  # Set this to False if you don't want to launch it
 
     ####### DATA INPUT END ##########
     print("Fetching URDF ==>")    
-    robot_desc_path = os.path.join(get_package_share_directory(package_description), "urdf", urdf_file)
-    #robot_desc_path = os.path.join(get_package_share_directory(package_description), "urdf", xacro_file)
+    #robot_desc_path = os.path.join(get_package_share_directory(package_description), "urdf", urdf_file)
+    robot_desc_path = os.path.join(get_package_share_directory(package_description), "urdf", xacro_file)
 
-    # Robot State Publisher
-
-    # Robot State Publisher
-    robot_state_publisher_node = Node(
+    
+    rsp_robot1 = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        name='robot_state_publisher_node',
-        emulate_tty=True,
-        parameters=[{'use_sim_time': True, 'robot_description': Command(['xacro ', robot_desc_path])}],
+        name='robot_state_publisher',
+        namespace=robot_name_1,
+        parameters=[{'use_sim_time': True,
+                     'robot_description': Command(['xacro ', robot_desc_path, ' robot_name:=', robot_name_1])}],
         output="screen"
+        
     )
 
-    #  Joint State Publisher_gui
-    #joint_state_publisher_gui_node = Node(
-    #    package='joint_state_publisher_gui',
-    #    executable='joint_state_publisher_gui',
-    #    name='joint_state_publisher_node',
-    #    emulate_tty=True,
-    #    output="screen"
-    #)
+    nodes_to_launch = [rsp_robot1]
+
+    """
+    rsp_robot2 = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        name='robot_state_publisher',
+        namespace=robot_name_2,
+        parameters=[{'frame_prefix': robot_name_2+'/', 'use_sim_time': use_sim_time,
+                     'robot_description': Command(['xacro ', robot_desc_path, ' robot_name:=', robot_name_2])}],
+        output="screen"    
+    )
+    """
+    
+    # Robot State Publisher
+    # Joint State Publisher_gui
+
+    if use_joint_state_publisher_gui:
+        joint_state_publisher_gui_node = Node(
+            package='joint_state_publisher_gui',
+            executable='joint_state_publisher_gui',
+            namespace=robot_name_1,
+            name='joint_state_publisher_node',
+            emulate_tty=True,
+        output="screen"
+        )
+        nodes_to_launch.append(joint_state_publisher_gui_node)
 
     # RVIZ Configuration
     rviz_config_dir = os.path.join(get_package_share_directory(package_description), 'rviz', 'amrj16_rviz2_config.rviz')
 
 
-    rviz_node = Node(
+    rviz2_node = Node(            
             package='rviz2',
             executable='rviz2',
             output='screen',
             name='rviz_node',
+            namespace=robot_name_1,
             parameters=[{'use_sim_time': True}],
-            arguments=['-d', rviz_config_dir])
+            arguments=['-d', rviz_config_dir]
+    )
+
+    nodes_to_launch.append(rviz2_node)
 
     # create and return launch description object
-    return LaunchDescription(
-        [            
-            robot_state_publisher_node,
-            rviz_node,
-            #joint_state_publisher_gui_node
-        ]
-    )
+    return LaunchDescription(nodes_to_launch)
+  

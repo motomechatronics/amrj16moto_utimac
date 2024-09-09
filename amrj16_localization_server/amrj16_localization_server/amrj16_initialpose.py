@@ -15,14 +15,14 @@ class InitializePose(Node):
         # Publisher for the 'amrj16/initialpose' topic
         self._pose_pub = self.create_publisher(
             PoseWithCovarianceStamped,
-            'amrj16/initialpose',
+            'amrj16_0/initialpose',
             QoSProfile(depth=10, reliability=ReliabilityPolicy.RELIABLE)
         )
 
         # Subscriber to the '/odom' topic
         self._odom_sub = self.create_subscription(
             Odometry,
-            '/odom',
+            'amrj16_0/odom',
             self.odom_callback,
             QoSProfile(depth=10, reliability=ReliabilityPolicy.RELIABLE)
         )
@@ -61,8 +61,8 @@ class InitializePose(Node):
                 self.get_logger().warn(f"Publishing to /initialpose with {connections} connection(s)...")
 
                 self.flag = False  # Prevent further publishing
-            else:
-                self.get_logger().info(f"Waiting for subscribers... Currently {connections} connection(s)")
+            else:                
+                pass
             rclpy.spin_once(self, timeout_sec=0.1)
 
 def main(args=None):

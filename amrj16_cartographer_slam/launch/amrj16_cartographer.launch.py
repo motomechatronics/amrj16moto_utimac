@@ -17,9 +17,9 @@ def generate_launch_description():
             arguments = ['-configuration_directory',cartographer_config_dir,
             '-configuration_basename', configuration_basename],
             remappings=[
-                ('/cmd_vel', 'amrj16/cmd_vel'),
-                ('/odom', 'amrj16/odom'),
-                ('/scan', '/amrj16/laser_scan'),],
+                ('/cmd_vel', '/amrj16_0/cmd_vel'),
+                ('/odom', '/amrj16_0/odom'),
+                ('/scan', '/amrj16_0/laserscan'),],
 
         ),
         

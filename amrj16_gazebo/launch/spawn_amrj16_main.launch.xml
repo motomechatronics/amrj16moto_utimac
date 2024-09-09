@@ -5,5 +5,5 @@
   <!-- Read robot_description an spawn in gazebo running sim -->
   <include file="$(find-pkg-share amrj16_gazebo)/launch/start_world.launch.py"/>
   <include file="$(find-pkg-share amrj16_gazebo)/launch/spawn_amrj16_description.launch.py"/>
-  <include file="$(find-pkg-share amrj16_gazebo)/launch/spawn_amrj16_control.launch.py"/>
+  <!--include file="$(find-pkg-share amrj16_gazebo)/launch/spawn_amrj16_control.launch.py"/ -->
 </launch>
