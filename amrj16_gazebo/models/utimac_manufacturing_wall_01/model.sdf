@@ -16,7 +16,7 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://utimac_manufacturing_wall_01/meshes/utimac_walls.dae</uri>
+            <uri>model://utimac_manufacturing_wall_01/meshes/Salvatore3rdProyect_Environment_v01.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -35,7 +35,7 @@
       <visual name="visual">
 	    <geometry>
           <mesh>
-            <uri>model://utimac_manufacturing_wall_01/meshes/utimac_walls.dae</uri>
+            <uri>model://utimac_manufacturing_wall_01/meshes/Salvatore3rdProyect_Environment_v01.dae</uri>
           </mesh>
         </geometry>
       <meta> <layer> 2 </layer></meta>

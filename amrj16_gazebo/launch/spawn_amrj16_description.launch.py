@@ -21,7 +21,7 @@ def generate_launch_description():
     robot_base_name = "amrj16"
 
 
-    entity_name = robot_base_name+"-"+str(int(random.random()*100000))
+    entity_name = robot_base_name
 
     # Spawn ROBOT Set Gazebo
     spawn_robot = Node(

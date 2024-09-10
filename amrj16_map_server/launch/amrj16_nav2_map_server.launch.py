@@ -28,6 +28,6 @@ def generate_launch_description():
                         {'node_names': ['map_server']}]
 
         
-        ),
+        )
             
     ])
