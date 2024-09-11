@@ -25,9 +25,11 @@ def generate_launch_description():
             name = 'occupancy_grid_node',
             output = 'screen',
             parameters = [{'use_sim_time': True}],
-            arguments = ['-resolution','0.05','-publish_period_sec','1.0']
+            arguments = ['-resolution','0.05','-publish_period_sec','1']   # ['-resolution','0.05','-publish_period_sec','1.0']
             
         
         ),
             
     ])
+
+
