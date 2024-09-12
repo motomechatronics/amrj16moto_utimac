@@ -3,7 +3,7 @@ from launch_ros.actions import Node
 import os
 from  ament_index_python.packages import get_package_share_directory
 
-map_filename = os.path.join(get_package_share_directory('amrj16_map_server'), 'config', 'mechanical_workshop.yaml')
+map_filename = os.path.join(get_package_share_directory('amrj16_map_server'), 'config', 'utimac_environment_map.yaml')
 amrj16_nav2_yaml = os.path.join(get_package_share_directory('amrj16_localization_server'), 'config', 'amrj16_amcl_config.yaml')
 # amrj17_nav2_yaml = os.path.join(get_package_share_directory('amrj17_localization_server'), 'config', 'amrj17_amcl_config.yaml')
 # rviz_path = os.path.join(get_package_share_directory('amrj16_localization_server'), 'config', 'amrj16_localization.rviz')
@@ -21,8 +21,7 @@ def generate_launch_description():
                           {'yaml_filename': map_filename}]
             ), 
 
-        Node(
-            namespace='amrj16',
+        Node(            
             package ='nav2_amcl',
             executable ='amcl',
             name = 'amcl',
@@ -49,7 +48,7 @@ def generate_launch_description():
             parameters=[{'use_sim_time': True},
                         {'autostart': True},
                         {'bond_timeout':0.0},
-                        {'node_names': ['map_server','amrj16/amcl']}]  #,'tb3_1/amcl'
+                        {'node_names': ['map_server','amcl']}]  #,'tb3_1/amcl'
 
         
             )  #,

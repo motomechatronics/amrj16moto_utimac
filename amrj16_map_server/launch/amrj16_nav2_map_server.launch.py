@@ -3,7 +3,7 @@ from launch_ros.actions import Node
 import os
 from  ament_index_python.packages import get_package_share_directory
 
-map_filename = os.path.join(get_package_share_directory('amrj16_map_server'), 'config', 'mechanical_workshop.yaml')
+map_filename = os.path.join(get_package_share_directory('amrj16_map_server'), 'config', 'utimac_environment_map.yaml')
 
 
 def generate_launch_description():

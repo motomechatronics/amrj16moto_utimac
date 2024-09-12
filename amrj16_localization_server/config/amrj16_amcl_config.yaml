@@ -1,4 +1,4 @@
-amrj16/amcl:
+amcl:
   ros__parameters:
     use_sim_time: True
     alpha1: 0.2
@@ -6,7 +6,7 @@ amrj16/amcl:
     alpha3: 0.2
     alpha4: 0.2
     alpha5: 0.2
-    base_frame_id: "base_link" #"amrj16/base_footprint"
+    base_frame_id: "base_footprint" #"amrj16/base_footprint"
     beam_skip_distance: 0.5
     beam_skip_error_threshold: 0.9
     beam_skip_threshold: 0.3
@@ -37,13 +37,13 @@ amrj16/amcl:
     z_max: 0.05
     z_rand: 0.5
     z_short: 0.05
-    scan_topic: "laser_scan" # scan_topic: "scan"
+    scan_topic: "scan" # scan_topic: "scan"
     map_topic: "/map"
 
-amrj16/amcl_map_client:
+amcl_map_client:
   ros__parameters:
     use_sim_time: True
-
-amrj16/amcl_rclcpp_node:
+    
+amcl_rclcpp_node:
   ros__parameters:
     use_sim_time: True
