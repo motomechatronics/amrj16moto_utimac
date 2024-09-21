@@ -14,11 +14,11 @@ def generate_launch_description():
 
     # Position and orientation
     # [X, Y, Z]
-    position = [29, 1.8, 0]
+    position = [24, 1.8, 0]
     # [Roll, Pitch, Yaw]
-    orientation = [0.0, 0.0, 0]
+    orientation = [0.0, 0.0, 1.57]
     # Base Name or robot
-    entity_name = "empty_bin"   
+    entity_name = "full_bin"   
 
     # Spawn ROBOT Set Gazebo
     spawn_bin = Node(       
