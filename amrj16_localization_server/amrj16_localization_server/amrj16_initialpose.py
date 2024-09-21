@@ -15,7 +15,7 @@ class InitializePose(Node):
         # Publisher for the 'amrj16/initialpose' topic
         self._pose_pub = self.create_publisher(
             PoseWithCovarianceStamped,
-            'amrj16/initialpose',
+            '/initialpose',
             QoSProfile(depth=10, reliability=ReliabilityPolicy.RELIABLE)
         )
 

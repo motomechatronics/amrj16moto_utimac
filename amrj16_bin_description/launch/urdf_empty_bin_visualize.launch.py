@@ -30,7 +30,7 @@ def generate_launch_description():
         emulate_tty=True,       
         parameters=[{'use_sim_time': True, 'robot_description': Command(['xacro ', robot_desc_path])}],
         output="screen"
-        
+       
     )
 
     nodes_to_launch = [rsp]
@@ -51,7 +51,7 @@ def generate_launch_description():
         nodes_to_launch.append(joint_state_publisher_gui_node)
 
     # RVIZ Configuration
-    rviz_config_dir = os.path.join(get_package_share_directory(package_description), 'rviz', 'amrj16_rviz2_config.rviz')
+    rviz_config_dir = os.path.join(get_package_share_directory(package_description), 'rviz', 'bin_rviz2_config.rviz')
 
 
     rviz2_node = Node(  
