@@ -14,7 +14,7 @@ def generate_launch_description():
 
     # Position and orientation
     # [X, Y, Z]
-    position = [-5.3, 6.2, 0.2]
+    position = [29, 6.2, 0.2]
     # [Roll, Pitch, Yaw]
     orientation = [0.0, 0.0, -1.5707]
     # Base Name or robot

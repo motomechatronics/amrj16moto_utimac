@@ -14,9 +14,9 @@ def generate_launch_description():
 
     # Position and orientation
     # [X, Y, Z]
-    position = [24, 1.8, 0]
+    position = [24, 1.75, 0.015]
     # [Roll, Pitch, Yaw]
-    orientation = [0.0, 0.0, 1.57]
+    orientation = [0.0, 0.0, -3.14]
     # Base Name or robot
     entity_name = "full_bin"   
 

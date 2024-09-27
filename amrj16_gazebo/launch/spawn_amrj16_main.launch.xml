@@ -2,8 +2,10 @@
 <launch>
   <!-- Publish URDF file in robot_description topic -->
   <include file="$(find-pkg-share amrj16_description)/launch/urdf_amrj16_visualize.launch.py"/>
+  <include file="$(find-pkg-share amrj16_utimac_bin)/launch/urdf_empty_bin_visualize.launch.py"/>
   <!-- Read robot_description an spawn in gazebo running sim -->
   <include file="$(find-pkg-share amrj16_gazebo)/launch/start_world.launch.py"/>
   <include file="$(find-pkg-share amrj16_gazebo)/launch/spawn_amrj16_description.launch.py"/>
+  <include file="$(find-pkg-share amrj16_gazebo)/launch/spawn_empty_bin_description.launch.py"/>
   <!--include file="$(find-pkg-share amrj16_gazebo)/launch/spawn_amrj16_control.launch.py"/ -->
 </launch>
