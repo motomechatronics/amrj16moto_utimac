@@ -30,7 +30,7 @@ def generate_launch_description():
             executable ='amcl',
             name = 'amcl',
             output ='screen',
-            parameters = [nav2_yaml]
+            parameters = [{'use_sim_time': True},nav2_yaml]
             ), 
                
         Node(

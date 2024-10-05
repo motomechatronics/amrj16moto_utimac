@@ -19,14 +19,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://amrj16_description/models/meshes/amrj16_chassis_utimac_v1.dae"/>        
+        <mesh filename="package://amrj16_description/models/meshes/amrj16_chassis_utimac_v2.dae"/>        
       </geometry>     
     </visual>
 
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://amrj16_description/models/meshes/amrj16_chassis_utimac_v1.dae"/>     
+        <mesh filename="package://amrj16_description/models/meshes/amrj16_chassis_utimac_v2_low_res.stl"/>        
       </geometry>
     </collision>
 
@@ -72,12 +72,11 @@
         <kp>1000000000000000000000000000.0</kp>
         <kd>1000000000000000000000000000.0</kd>
         <mu1>10.0</mu1>
-        <mu2>10.0</mu2>
-        
+        <mu2>10.0</mu2>    
     </gazebo>
     
     <joint name="chassis_right_wheel_joint" type="continuous">
-        <origin xyz="0 0.5456 0" rpy="1.5707 0 0"/>  
+        <origin xyz="0 -0.5456 0" rpy="-1.5707 0 0"/>  
         <parent link="chassis"/>
         <child link="right_wheel"/>
         <axis xyz="0 0 1"/>
@@ -114,11 +113,13 @@
         <kp>1000000000000000000000000000.0</kp>
         <kd>1000000000000000000000000000.0</kd>
         <mu1>10.0</mu1>
-        <mu2>10.0</mu2>       
+        <mu2>10.0</mu2>     
     </gazebo>
+
+
     
     <joint name="chassis_left_wheel_joint" type="continuous">
-        <origin xyz="0 -0.5456 0" rpy="1.5707 0 0"/> 
+        <origin xyz="0 0.5456 0" rpy="-1.5707 0 0"/> 
         <parent link="chassis"/>
         <child link="left_wheel"/>
         <axis xyz="0 0 1"/>
@@ -135,12 +136,12 @@
                 </geometry>
         </visual>
 
-    <collision>
+    <!--collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
                  <mesh filename="package://amrj16_description/models/meshes/amrj16_caster_hub.dae"/>
         </geometry>
-    </collision>   
+    </collision-->   
 
     <inertial>
         <mass value="0.140"/>
@@ -152,11 +153,10 @@
     </link>
     
     <joint name="chassis_front_right_caster_hub_joint" type="continuous">
-        <origin xyz="0.255 0.186 -0.05" rpy="0 0 1.5707"/>
+        <origin xyz="-0.255 -0.186 -0.05" rpy="0 0 1.5707"/> 
         <parent link="chassis"/>
         <child link="front_right_caster_hub"/>
         <axis xyz="0 0 1"/>
-        <limit effort="1000.0" velocity="100.0" />
         <dynamics damping="0.0" friction="0.1"/>
     </joint>
 
@@ -172,7 +172,7 @@
     <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-                 <mesh filename="package://amrj16_description/models/meshes/amrj16_caster_wheel.dae"/>
+            <cylinder radius="0.015" length="0.02"/>
         </geometry>
     </collision>   
 
@@ -186,8 +186,8 @@
     </link>
 
     <gazebo reference="front_right_caster_wheel">
-        <kp>1000000000000000000000000000.0</kp>
-        <kd>1000000000000000000000000000.0</kd>
+        <kp>500</kp>
+        <kd>500</kd>
         <mu1>10.0</mu1>
         <mu2>10.0</mu2>      
     </gazebo>
@@ -212,12 +212,12 @@
                 </geometry>
         </visual>
 
-        <collision>
+        <!--collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                     <mesh filename="package://amrj16_description/models/meshes/amrj16_caster_hub.dae"/>
             </geometry>
-        </collision>   
+        </collision-->   
 
         <inertial>
             <mass value="0.140"/>
@@ -228,11 +228,10 @@
     </link>
         
     <joint name="chassis_front_left_caster_hub_joint" type="continuous">
-        <origin xyz="0.255 -0.186 -0.05" rpy="0 0 1.5707"/>
+        <origin xyz="-0.255 0.186 -0.05" rpy="0 0 1.5707"/>
         <parent link="chassis"/>
         <child link="front_left_caster_hub"/>
-        <axis xyz="0 0 1"/>
-        <limit effort="1000.0" velocity="100.0" />
+        <axis xyz="0 0 1"/>      
         <dynamics damping="0.0" friction="0.1"/>
     </joint>
 
@@ -248,7 +247,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                   <mesh filename="package://amrj16_description/models/meshes/amrj16_caster_wheel.dae"/>
+                <cylinder radius="0.015" length="0.02"/>
             </geometry>
         </collision>   
 
@@ -262,8 +261,8 @@
     </link>
 
     <gazebo reference="front_left_caster_wheel">
-        <kp>1000000000000000000000000000.0</kp>
-        <kd>1000000000000000000000000000.0</kd>
+        <kp>500</kp>
+        <kd>500</kd>
         <mu1>10.0</mu1>
         <mu2>10.0</mu2>    
     </gazebo>
@@ -283,7 +282,7 @@
     </link>
 
     <joint name="camera_dx_joint" type="fixed">
-        <origin rpy="0 0 0" xyz="0.280 0.186 -0.035"/>
+        <origin rpy="0 0 0" xyz="-0.280 -0.186 -0.035"/>
         <parent link="chassis" />
         <child link="rgb_camera_dx" />
         <axis xyz="0 0 0"/>
@@ -330,7 +329,7 @@
     </link>
 
     <joint name="rgb_camera_sx_joint" type="fixed">
-        <origin rpy="0 0 0" xyz="0.280 -0.186 -0.035"/>
+        <origin rpy="0 0 0" xyz="-0.280 0.186 -0.035"/>
         <parent link="chassis" />
         <child link="rgb_camera_sx" />
         <axis xyz="0 0 0"/>
@@ -397,7 +396,7 @@
     </link>
 
     <joint name="chassis_lidar_joint" type="fixed">
-        <origin rpy="0 0 0" xyz="0.200 0 -0.06"/>
+        <origin rpy="0 0 3.14" xyz="-0.2 0 0.2"/>
         <parent link="chassis" />
         <child link="lidar" />
         <axis xyz="0 0 0" /> <!-- 0 0 0-->
@@ -438,7 +437,7 @@
     </link>
 
     <joint name="chassis_asus_xtion_joint" type="fixed">
-        <origin rpy="0 0 0" xyz="0.300 0.0 0.2465"/>
+        <origin rpy="0 0 0" xyz="0.300 0.0 0.2"/>
         <parent link="chassis" />
         <child link="asus_xtion" />
         <axis xyz="0 0 0"/>
@@ -589,21 +588,22 @@
       <wheel_diameter>0.206</wheel_diameter>
 
       <!-- limits -->
-      <max_wheel_torque>1.0</max_wheel_torque>
-      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+      <max_wheel_torque>20.0</max_wheel_torque>
+      <max_wheel_acceleration>0.3</max_wheel_acceleration>
 
-      <!--command_topic>cmd_vel</command_topic -->
+      <command_topic>cmd_vel</command_topic>
       <!-- remapping>/cmd_vel:=/cmd_vel</remapping -->
 
       <!-- output -->
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
 
-      <!-- odometry_topic>odom</odometry_topic -->
+      <odometry_topic>odom</odometry_topic>
       <!-- remapping>/odom:=/odom</remapping -->
 
       <odometry_frame>odom</odometry_frame>
       <robot_base_frame>base_footprint</robot_base_frame>
+      <!--odometry_source>1</odometry_source -->
 
     </plugin>
   </gazebo>

@@ -12,11 +12,13 @@ Panels:
         - /PointCloud1/Topic1
         - /Map1/Topic1
         - /ParticleCloud1/Topic1
-        - /Path1/Status1
+        - /Global Costmap1
         - /Global Costmap1/Topic1
         - /Local Costmap1
         - /Local Costmap1/Topic1
         - /Polygon1
+        - /Local Path1
+        - /Local Path1/Topic1
       Splitter Ratio: 0.5
     Tree Height: 352
   - Class: rviz_common/Selection
@@ -190,31 +192,30 @@ Visualization Manager:
       Show Names: false
       Tree:
         map:
-          {}
-        odom:
-          base_footprint:
-            base_link:
-              chassis:
-                asus_xtion:
-                  {}
-                front_left_caster_hub:
-                  front_left_caster_wheel:
+          odom:
+            base_footprint:
+              base_link:
+                chassis:
+                  asus_xtion:
                     {}
-                front_right_caster_hub:
-                  front_right_caster_wheel:
+                  front_left_caster_hub:
+                    front_left_caster_wheel:
+                      {}
+                  front_right_caster_hub:
+                    front_right_caster_wheel:
+                      {}
+                  left_wheel:
                     {}
-                left_wheel:
+                  lidar:
+                    {}
+                  rgb_camera_dx:
+                    {}
+                  rgb_camera_sx:
+                    {}
+                  right_wheel:
+                    {}
+                imu_link:
                   {}
-                lidar:
-                  {}
-                rgb_camera_dx:
-                  {}
-                rgb_camera_sx:
-                  {}
-                right_wheel:
-                  {}
-              imu_link:
-                {}
       Update Interval: 0
       Value: true
     - Class: rviz_default_plugins/Camera
@@ -236,6 +237,7 @@ Visualization Manager:
         Grid: true
         LaserScan: true
         Local Costmap: true
+        Local Path: true
         Map: true
         ParticleCloud: true
         Path: true
@@ -265,6 +267,7 @@ Visualization Manager:
         Grid: true
         LaserScan: true
         Local Costmap: true
+        Local Path: true
         Map: true
         ParticleCloud: true
         Path: true
@@ -312,8 +315,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.06033924221992493
-        Min Value: -0.01620575785636902
+        Max Value: 1.2094008922576904
+        Min Value: -0.14624100923538208
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -445,7 +448,7 @@ Visualization Manager:
       Value: true
     - Alpha: 0.699999988079071
       Class: rviz_default_plugins/Map
-      Color Scheme: map
+      Color Scheme: costmap
       Draw Behind: false
       Enabled: true
       Name: Global Costmap
@@ -498,6 +501,34 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /local_costmap/published_footprint
       Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz_default_plugins/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.30000001192092896
+      Head Length: 0.20000000298023224
+      Length: 0.30000001192092896
+      Line Style: Lines
+      Line Width: 0.029999999329447746
+      Name: Local Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.029999999329447746
+      Shaft Diameter: 0.10000000149011612
+      Shaft Length: 0.10000000149011612
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_plan
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -544,25 +575,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 5.271625995635986
+      Distance: 17.92728042602539
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 3.2640087604522705
-        Y: 2.9255692958831787
-        Z: -1.9529623985290527
+        X: -0.6737188100814819
+        Y: -3.6367878913879395
+        Z: -1.3655576705932617
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5947969555854797
+      Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.4653964042663574
+      Yaw: 1.5803964138031006
     Saved: ~
 Window Geometry:
   Camera_dx:

@@ -62,8 +62,7 @@ class InitializePose(Node):
 
                 self.flag = False  # Prevent further publishing
             else:
-                self.get_logger().info(f"Waiting for subscribers... Currently {connections} connection(s)")
-            rclpy.spin_once(self, timeout_sec=0.1)
+                pass
 
 def main(args=None):
     rclpy.init(args=args)

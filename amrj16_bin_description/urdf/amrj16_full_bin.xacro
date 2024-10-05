@@ -103,18 +103,30 @@
     </link>
 
     <gazebo reference="${prefix}_front_right_caster_wheel">
-        <kp>1e6</kp>
-        <kd>1e3</kd>
-        <mu1>10.0</mu1>
-        <mu2>10.0</mu2>      
-    </gazebo>
+      <collision>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
+            </ode>
+            <bullet>
+              <friction>0.3</friction>
+              <friction2>0.3</friction2>
+              <rolling_friction>0.1</rolling_friction>
+            </bullet>
+          </friction>
+        </surface>
+      </collision>
+    </gazebo>    
+
 
     <joint name="${prefix}_front_right_caster_hub_wheel_joint" type="continuous">
        <origin xyz="0.039 0 -0.067" rpy="0 0 0"/>
         <parent link="${prefix}_front_right_caster_hub"/>
         <child link="${prefix}_front_right_caster_wheel"/>
         <axis xyz="0 1 0"/>
-        <dynamics damping="0.5" friction="0.5"/>
+        <dynamics damping="0.5" friction="1.5"/>
     </joint>
 
  <!-- front-left caster hub -->
@@ -173,18 +185,30 @@
     </link>
 
     <gazebo reference="${prefix}_front_left_caster_wheel">
-        <kp>1e6</kp>
-        <kd>1e3</kd>
-        <mu1>10.0</mu1>
-        <mu2>10.0</mu2>      
-    </gazebo>
+      <collision>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
+            </ode>
+            <bullet>
+              <friction>0.3</friction>
+              <friction2>0.3</friction2>
+              <rolling_friction>0.1</rolling_friction>
+            </bullet>
+          </friction>
+        </surface>
+      </collision>
+    </gazebo> 
+
 
     <joint name="${prefix}_front_left_caster_hub_wheel_joint" type="continuous">
        <origin xyz="0.039 0 -0.067" rpy="0 0 0"/>
         <parent link="${prefix}_front_left_caster_hub"/>
         <child link="${prefix}_front_left_caster_wheel"/>
         <axis xyz="0 1 0"/>       
-        <dynamics damping="0.5" friction="0.5"/>
+        <dynamics damping="0.5" friction="1.5"/>
     </joint>
 
   <!-- rear-right caster hub -->
@@ -244,10 +268,21 @@
     </link>
 
    <gazebo reference="${prefix}_rear_right_caster_wheel">
-        <kp>1e6</kp>
-        <kd>1e3</kd>
-        <mu1>10.0</mu1>
-        <mu2>10.0</mu2>      
+      <collision>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
+            </ode>
+            <bullet>
+              <friction>0.3</friction>
+              <friction2>0.3</friction2>
+              <rolling_friction>0.1</rolling_friction>
+            </bullet>
+          </friction>
+        </surface>
+      </collision>
     </gazebo>
 
     <joint name="${prefix}_rear_right_caster_hub_wheel_joint" type="continuous">
@@ -255,7 +290,7 @@
         <parent link="${prefix}_rear_right_caster_hub"/>
         <child link="${prefix}_rear_right_caster_wheel"/>
         <axis xyz="0 1 0"/>       
-        <dynamics damping="0.5" friction="0.5"/>
+        <dynamics damping="0.5" friction="1.5"/>
     </joint>
 
 <!-- rear-left caster hub -->
@@ -314,10 +349,21 @@
     </link>
 
     <gazebo reference="${prefix}_rear_left_caster_wheel">
-        <kp>1e6</kp>
-        <kd>1e3</kd>
-        <mu1>10.0</mu1>
-        <mu2>10.0</mu2>      
+      <collision>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.3</mu>
+              <mu2>0.3</mu2>
+            </ode>
+            <bullet>
+              <friction>0.3</friction>
+              <friction2>0.3</friction2>
+              <rolling_friction>0.1</rolling_friction>
+            </bullet>
+          </friction>
+        </surface>
+      </collision>
     </gazebo>
 
     <joint name="${prefix}_rear_left_caster_hub_wheel_joint" type="continuous">
@@ -325,7 +371,7 @@
         <parent link="${prefix}_rear_left_caster_hub"/>
         <child link="${prefix}_rear_left_caster_wheel"/>
         <axis xyz="0 1 0"/>        
-        <dynamics damping="0.5" friction="0.5"/>
+        <dynamics damping="0.5" friction="1.5"/>
     </joint>
 
 

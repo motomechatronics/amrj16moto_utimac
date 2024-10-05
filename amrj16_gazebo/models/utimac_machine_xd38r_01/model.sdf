@@ -14,11 +14,10 @@
         </inertia>
       </inertial>
       <collision name="collision">
-        <geometry>
+        <geometry>          
           <mesh>
-            <uri>model://utimac_machine_xd38r_01/meshes/utimac_XD38R_v03.dae</uri>
-             
-          </mesh>
+            <uri>model://utimac_machine_xd38r_01/meshes/utimac_XD38R_v03.stl</uri>            
+          </mesh>      
         </geometry>
 		<surface>
           <friction>
@@ -35,8 +34,7 @@
       <visual name="visual">
 	    <geometry>
           <mesh>
-            <uri>model://utimac_machine_xd38r_01/meshes/utimac_XD38R_v03.dae</uri>
-            
+            <uri>model://utimac_machine_xd38r_01/meshes/utimac_XD38R_v03.dae</uri>                      
           </mesh>
         </geometry>
       <meta> <layer> 2 </layer></meta>
