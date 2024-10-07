@@ -76,7 +76,7 @@ local_costmap:
       height: 3 #1
       resolution: 0.05
       #robot_radius: 0.1
-      footprint: "[[0.3, 0.6], [0.3, -0.6], [-0.3, -0.6], [-0.3, 0.6]]"
+      footprint: "[[0.2, 0.65], [0.2, -0.65], [-0.35, -0.65], [-0.35, 0.65]]"
       footprint_clearing_enabled: true
       plugins: ["voxel_layer", "inflation_layer"]
       inflation_layer:

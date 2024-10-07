@@ -46,7 +46,7 @@
         <pose>24.2 4.2 1.2 0 0 0</pose>
 	</model>
 
-     <!-- model name="utimac_machine_xd38r_002">
+      <!--model name="utimac_machine_xd38r_002">
         <include>
             <uri>model://utimac_machine_xd38r_01</uri>
         </include>
