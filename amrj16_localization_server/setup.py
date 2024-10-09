@@ -27,6 +27,7 @@ setup(
     entry_points={
         'console_scripts': [
         'amrj16_initialpose_exe = amrj16_localization_server.amrj16_initialpose:main',
+        'amrj16_record_poi_server_exe = amrj16_localization_server.amrj16_record_poi_server:main',
         ],
     },
 )
