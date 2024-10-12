@@ -434,10 +434,29 @@
 </gazebo>
 
     <link name="asus_xtion">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://amrj16_description/models/meshes/amrj16_asus_xtion_pro_live.dae"/>
+            </geometry>
+        </visual>
+
+            <!--collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                        <cylinder radius="0.030" length="0.041"/>
+                </geometry>
+            </collision-->   
+
+        <inertial>
+            <mass value="0.3"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0.000025441" ixy="0" ixz="0" iyy="0.00002543" iyz="-0.0000000017817" izz="0.000028616"/>            
+        </inertial> 
     </link>
 
     <joint name="chassis_asus_xtion_joint" type="fixed">
-        <origin rpy="0 0 0" xyz="0.300 0.0 0.2"/>
+        <origin rpy="0 0 0" xyz="-0.095 0 0.131"/>
         <parent link="chassis" />
         <child link="asus_xtion" />
         <axis xyz="0 0 0"/>
