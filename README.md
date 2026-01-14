@@ -222,19 +222,20 @@ project.
 
 If the candidate chooses to use Docker to run Ubuntu Linux instead of installing Linux directly on their system, they must document the entire procedure in a complete and detailed manner, including:
 
-installation of Docker on their operating system
-verification of correct Docker operation
-download of the Ubuntu image
-container creation and startup
-access to the container terminal
-configuration of the Ubuntu environment
-mounting of any volumes required to work with the repository
+- installation of Docker on their operating system
+- verification of correct Docker operation
+- download of the Ubuntu image
+- container creation and startup
+- access to the container terminal
+- configuration of the Ubuntu environment
+- mounting of any volumes required to work with the repository
+
 The entire Docker procedure must be included in the tutorial with:
 
-commands
-explanations
-outputs
-personal comments
+- commands
+- explanations
+- outputs
+- personal comments
 
 The use of Docker is considered a valid technical deepening and will be positively evaluated only if it is correctly documented and fully functional.
 
