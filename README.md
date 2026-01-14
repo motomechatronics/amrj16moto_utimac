@@ -90,13 +90,14 @@ To apply, candidates must send their CV to:\
 6.  Required skills\
 7.  Importance of documentation\
 8.  Study support\
-9.  Mandatory tutorial structure\
-10. Official tutorial index\
-11. Tutorial writing rules\
-12. Evaluation grid\
-13. Passing threshold\
-14. Score interpretation\
-15. Conclusion
+9.  Optional Use of Docker
+10. Mandatory tutorial structure\
+11. Official tutorial index\
+12. Tutorial writing rules\
+13. Evaluation grid\
+14. Passing threshold\
+15. Score interpretation\
+16. Conclusion
 
 ------------------------------------------------------------------------
 
@@ -215,6 +216,29 @@ The course is only a methodological reference: the submitted tutorial
 must be original and applied specifically to the amrj16moto_utimac
 project.
 
+------------------------------------------------------------------------
+
+## Optional Use of Docker
+
+If the candidate chooses to use Docker to run Ubuntu Linux instead of installing Linux directly on their system, they must document the entire procedure in a complete and detailed manner, including:
+
+installation of Docker on their operating system
+verification of correct Docker operation
+download of the Ubuntu image
+container creation and startup
+access to the container terminal
+configuration of the Ubuntu environment
+mounting of any volumes required to work with the repository
+The entire Docker procedure must be included in the tutorial with:
+
+commands
+explanations
+outputs
+personal comments
+
+The use of Docker is considered a valid technical deepening and will be positively evaluated only if it is correctly documented and fully functional.
+
+If Docker is used, all required Linux commands must be executed inside the Ubuntu container.
 ------------------------------------------------------------------------
 
 ## Mandatory Tutorial Structure
