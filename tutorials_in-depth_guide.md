@@ -96,7 +96,7 @@ You should understand:
 Keep this mindset while reading — and while writing your own tutorials.
 
 
-## 6. practical suggestion
+## 6. Practical suggestion
 # Basic Linux Tutorial (Narrative & Interactive)  
 ## Applied to the **J16MOTO** project (`amrj16moto_utimac`)
 
