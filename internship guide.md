@@ -115,7 +115,7 @@ In this context, the tutorial itself represents **proof that the learning object
 ## 7. Expected Deliverables
 
 - Updated AMRJ16MOTO simulation (ROS2 Humble + Gazebo Ignition)
-- A complete set of tutorials written in Markdown
+- A complete set of tutorials written in Jupyter Notebook format
 - Tested launch files and configuration files
 - Clear instructions and validation steps for each tutorial
 - A final summary report
