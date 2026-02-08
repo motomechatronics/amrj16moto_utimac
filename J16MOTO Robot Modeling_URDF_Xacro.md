@@ -1,4 +1,4 @@
-# Unit 1 — Bringing AMRJ16 to Life in RViz (TF-First URDF/Xacro Modeling)
+# Unit 3 — Bringing AMRJ16 to Life in RViz (TF-First URDF/Xacro Modeling)
 
 **Estimated time:** ~3 hours  
 **Robot:** AMRJ16 (MOTO Mechatronics fleet)  
