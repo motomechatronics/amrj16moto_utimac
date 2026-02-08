@@ -198,6 +198,7 @@ This update activity is considered an **integral part of the internship tasks**.
 
 The candidate must produce a series of **technical tutorials** covering the following topics:
 
+0. Linux for J16MOTO
 1. ROS 2 Introduction, Installation & Workspace Setup for J16MOTO
 2. ROS 2 Development on J16MOTO: From Fundamentals to Advanced Applications
 3. J16MOTO Robot Modeling with URDF & Xacro (including conditional Xacro and fleet-oriented modeling)
