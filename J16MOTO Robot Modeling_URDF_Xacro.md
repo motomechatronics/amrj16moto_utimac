@@ -18,7 +18,8 @@ By the end of this unit you will be able to:
 - Configure RViz correctly (RobotModel + TF + fixed frame).
 - Validate non-fixed joints using **joint_state_publisher_gui**.
 
-Please note that the Xacro section is missing in this tutorial and must be added by you.
+### Please note that the Xacro section is missing in this tutorial and must be added by you.
+Follow the course to understand how to do it. Hint: create a j16moto_main.xacro that calls: lidar.xacro, chassis.xacro, etc.
 ---
 
 ## 0. Before you start
