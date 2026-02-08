@@ -10,7 +10,6 @@
 ---
 
 ## Learning goals
-
 By the end of this unit you will be able to:
 
 - Create a clean ROS 2 *description* package (`urdf/`, `launch/`, `rviz/`, `models/`).
@@ -19,6 +18,7 @@ By the end of this unit you will be able to:
 - Configure RViz correctly (RobotModel + TF + fixed frame).
 - Validate non-fixed joints using **joint_state_publisher_gui**.
 
+Please note that the Xacro section is missing in this tutorial and must be added by you.
 ---
 
 ## 0. Before you start
