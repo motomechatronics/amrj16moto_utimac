@@ -152,12 +152,16 @@ Submitting only one of them is considered **incomplete work**.
 
 During the internship, the candidate is required to follow and complete selected courses on **TheConstruct.ai**, including (but not limited to):
 
-- ROS2 in 5 Days (Python)  
-- ROS2 Basics (nodes, topics, messages)  
-- ROS2 Services and Actions  
-- ROS2 URDF/XACRO  
-- ROS2 Navigation (Nav2)  
-- Simulation with Gazebo / Ignition  
+- Linux for Robotics
+- ROS2 Basics in 5 Days (Python)
+- Intermediate ROS2
+- ROS2 Security 
+- URDF for Robot Modeling in ROS2 
+- ROS2 Navigation (Nav2)
+- Advanced ROS2 Navigation- 
+- Introduction to Gazebo Sim with ROS2
+- ROS 2 Perception in 5 Days
+- Building Gazebo Simulations with Blender
 
 These courses provide the theoretical and practical background necessary to develop the requested tutorials.
 
@@ -172,7 +176,7 @@ https://github.com/motomechatronics/amrj16moto_utimac
 At the moment, the simulation environment is functional; however, **a mandatory part of the internship consists in updating and aligning it with:**
 
 - **ROS2 Humble**
-- **Gazebo Ignition**
+- **Gazebo Fortress**
 
 This update activity is considered an **integral part of the internship tasks**.
 
@@ -183,4 +187,68 @@ This update activity is considered an **integral part of the internship tasks**.
 ### 5.1 Environment Update
 
 - Analyze the current state of the AMRJ16MOTO simulation  
-- Update packages, launch files, and configurations to be
+- Update packages, launch files, and configurations to be compatible with:
+  - ROS2 Humble  
+  - Gazebo Fortress
+- Verify that the simulation builds and runs correctly on a clean system  
+
+---
+
+### 5.2 Tutorial Development (Core Activity)
+
+The candidate must produce a series of **technical tutorials** covering the following topics:
+
+1. ROS 2 Introduction, Installation & Workspace Setup for J16MOTO
+2. ROS 2 Development on J16MOTO: From Fundamentals to Advanced Applications
+3. J16MOTO Robot Modeling with URDF & Xacro (including conditional Xacro and fleet-oriented modeling)
+4. J16MOTO Simulation Environment Modeling with Gazebo Ignition
+5. TF2 & Robot Kinematics on J16MOTO
+6. SLAM & Autonomous Navigation on J16MOTO with Nav2
+7. Perception on J16MOTO with OpenCV
+8. Recovery Behaviors and Impasse Handling on J16MOTO
+
+---
+
+## 6. Tutorial Reference Constraint (Critical Requirement)
+
+All tutorials must **explicitly and exclusively** refer to the AMRJ16MOTO simulation environment.
+
+Generic examples not connected to the reference simulation are **not acceptable**.
+
+---
+
+## 7. Reproducibility & Quality Standard
+
+A tutorial is considered complete only if another student can reproduce it from a clean system without errors.
+
+Reproducibility is a **fundamental quality criterion**.
+
+---
+
+## 8. Expected Deliverables
+
+- Updated AMRJ16MOTO simulation (ROS2 Humble + Gazebo Fortress)  
+- A complete set of tutorials in **Jupyter Notebook** and **Markdown** format  
+- Tested launch and configuration files  
+- Clear validation steps  
+- A final summary report  
+
+---
+## 9. Evaluation Criteria
+
+The internship will be evaluated based on:
+
+- correctness and robustness of the simulation environment,  
+- clarity and structure of the tutorials,  
+- strict reproducibility,  
+- coherence between tutorials and simulation,  
+- overall technical understanding demonstrated.
+
+The internship will be evaluated based on:
+
+- correctness and robustness of the simulation environment,  
+- clarity and structure of the tutorials,  
+- strict reproducibility,  
+- coherence between tutorials and simulation,  
+- overall technical understanding demonstrated.
+
