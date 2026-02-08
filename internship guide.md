@@ -158,7 +158,7 @@ During the internship, the candidate is required to follow and complete selected
 - ROS2 Security 
 - URDF for Robot Modeling in ROS2 
 - ROS2 Navigation (Nav2)
-- Advanced ROS2 Navigation- 
+- Advanced ROS2 Navigation
 - Introduction to Gazebo Sim with ROS2
 - ROS 2 Perception in 5 Days
 - Building Gazebo Simulations with Blender
