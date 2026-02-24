@@ -14,7 +14,7 @@ def generate_launch_description():
     xacro_file = "amrj16.xacro"
     package_description = "amrj16_description"    
     # Boolean flag to enable or disable joint_state_publisher_gui
-    use_joint_state_publisher_gui = False  # Set this to False if you don't want to launch it
+    use_joint_state_publisher_gui = True  # Set this to False if you don't want to launch it
 
     ####### DATA INPUT END ##########
     print("Fetching URDF ==>")    

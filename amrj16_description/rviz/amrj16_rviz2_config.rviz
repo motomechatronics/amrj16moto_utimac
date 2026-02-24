@@ -11,7 +11,6 @@ Panels:
         - /LaserScan1/Topic1
         - /PointCloud1/Topic1
         - /Map1/Topic1
-        - /ParticleCloud1/Topic1
         - /Global Costmap1
         - /Global Costmap1/Topic1
         - /Local Costmap1
@@ -22,7 +21,7 @@ Panels:
         - /PointCloud21
         - /PointCloud21/Topic1
       Splitter Ratio: 0.5
-    Tree Height: 352
+    Tree Height: 353
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -41,7 +40,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: LaserScan
+    SyncSource: ""
 Visualization Manager:
   Class: ""
   Displays:
@@ -159,6 +158,9 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+      Mass Properties:
+        Inertia: false
+        Mass: false
       Name: RobotModel
       TF Prefix: ""
       Update Interval: 0
@@ -181,23 +183,9 @@ Visualization Manager:
           Value: true
         chassis:
           Value: true
-        front_left_caster_hub:
-          Value: true
-        front_left_caster_wheel:
-          Value: true
-        front_right_caster_hub:
-          Value: true
-        front_right_caster_wheel:
-          Value: true
         imu_link:
           Value: true
-        left_wheel:
-          Value: true
         lidar:
-          Value: true
-        map:
-          Value: true
-        odom:
           Value: true
         rgb_camera_dx:
           Value: true
@@ -205,54 +193,40 @@ Visualization Manager:
           Value: true
         rgbd_camera_link_frame:
           Value: true
-        right_wheel:
-          Value: true
       Marker Scale: 0.20000000298023224
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: false
       Tree:
-        map:
-          odom:
-            base_footprint:
-              base_link:
-                chassis:
-                  asus_xtion:
+        base_footprint:
+          base_link:
+            chassis:
+              asus_xtion:
+                {}
+              lidar:
+                {}
+              rgb_camera_dx:
+                {}
+              rgb_camera_sx:
+                {}
+              rgbd_camera_link_frame:
+                camera_depth_frame:
+                  camera_depth_optical_frame:
                     {}
-                  front_left_caster_hub:
-                    front_left_caster_wheel:
-                      {}
-                  front_right_caster_hub:
-                    front_right_caster_wheel:
-                      {}
-                  left_wheel:
-                    {}
-                  lidar:
-                    {}
-                  rgb_camera_dx:
-                    {}
-                  rgb_camera_sx:
-                    {}
-                  rgbd_camera_link_frame:
-                    camera_depth_frame:
-                      camera_depth_optical_frame:
-                        {}
-                  right_wheel:
-                    {}
-                imu_link:
-                  {}
+            imu_link:
+              {}
       Update Interval: 0
       Value: true
     - Class: rviz_default_plugins/Camera
       Enabled: true
+      Far Plane Distance: 100
       Image Rendering: background and overlay
       Name: Camera_dx
       Overlay Alpha: 0.5
       Topic:
         Depth: 5
         Durability Policy: Volatile
-        Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Best Effort
         Value: camera_dx/image_raw
@@ -277,13 +251,13 @@ Visualization Manager:
       Zoom Factor: 1
     - Class: rviz_default_plugins/Camera
       Enabled: true
+      Far Plane Distance: 100
       Image Rendering: background and overlay
       Name: Camera_sx
       Overlay Alpha: 0.5
       Topic:
         Depth: 5
         Durability Policy: Volatile
-        Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Best Effort
         Value: camera_sx/image_raw
@@ -594,7 +568,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: map
+    Fixed Frame: base_footprint
     Frame Rate: 30
   Name: root
   Tools:
@@ -667,7 +641,7 @@ Window Geometry:
   Height: 851
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd000000040000000000000241000002b9fc020000000afb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005d00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007303000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003e000001eb000000cb00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001200430061006d006500720061005f00640078010000022f000000610000002800fffffffb0000001200430061006d006500720061005f007300780100000296000000610000002800ffffff0000000100000105000002b9fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003e000002b9000000a500fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000064000000039fc0100000002fb0000000800540069006d00650100000000000006400000026c00fffffffb0000000800540069006d00650100000000000004500000000000000000000002ee000002b900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000040000000000000241000002bafc020000000afb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000001ec000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000001200430061006d006500720061005f00640078010000022f000000610000002800fffffffb0000001200430061006d006500720061005f007300780100000296000000610000002800ffffff0000000100000105000002bafc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d000002ba000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000064000000039fc0100000002fb0000000800540069006d0065010000000000000640000002fb00fffffffb0000000800540069006d00650100000000000004500000000000000000000002ee000002ba00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -677,5 +651,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1600
-  X: 0
-  Y: 0
+  X: 70
+  Y: 27

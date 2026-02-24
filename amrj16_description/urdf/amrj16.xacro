@@ -188,8 +188,8 @@
     <gazebo reference="front_right_caster_wheel">
         <kp>500000</kp>
         <kd>500000</kd>
-        <mu1>10.0</mu1>
-        <mu2>10.0</mu2>      
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>      
     </gazebo>
 
     <joint name="front_right_caster_hub_wheel_joint" type="continuous">
@@ -263,8 +263,8 @@
     <gazebo reference="front_left_caster_wheel">
         <kp>500000</kp>
         <kd>500000</kd>
-        <mu1>10.0</mu1>
-        <mu2>10.0</mu2>    
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>    
     </gazebo>
 
     <joint name="front_left_caster_hub_wheel_joint" type="continuous">
@@ -315,7 +315,7 @@
             <always_on>1</always_on>
             <update_rate>30</update_rate>
           </camera>
-          <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <plugin name="camera_controller_dx" filename="libgazebo_ros_camera.so">
             <cameraName>rgb_camera</cameraName>
             <imageTopicName>image_raw</imageTopicName>
             <cameraInfoTopicName>camera_info</cameraInfoTopicName>
@@ -362,7 +362,7 @@
             <always_on>1</always_on>
             <update_rate>30</update_rate>
           </camera>
-          <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <plugin name="camera_controller_sx" filename="libgazebo_ros_camera.so">
             <cameraName>rgb_camera_sx</cameraName>
             <imageTopicName>image_raw</imageTopicName>
             <cameraInfoTopicName>camera_info</cameraInfoTopicName>
@@ -497,7 +497,7 @@
             <!-- Change namespace and output topic so published topic is /rrbot/laser/pointcloud -->
             <ros>
                 <!-- namespace>/amrj16</namespace -->
-                <argument>~/out:=pointcloud</argument>
+                <remapping>~/out:=pointcloud</remapping>
             </ros>
             <!-- Set output to sensor_msgs/PointCloud to get same output type as gazebo_ros_block_laser -->
             <output_type>sensor_msgs/PointCloud</output_type>
@@ -670,7 +670,10 @@
 
   <!-- Differential drive -->
   <gazebo>
-    <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      
+      <!-- Update rate -->
+      <update_rate>50</update_rate>
 
       <!-- wheels -->
       <left_joint>chassis_left_wheel_joint</left_joint>
@@ -681,23 +684,17 @@
       <wheel_diameter>0.206</wheel_diameter>
 
       <!-- limits -->
-      <max_wheel_torque>20.0</max_wheel_torque>
-      <max_wheel_acceleration>0.3</max_wheel_acceleration>
-
-      <command_topic>cmd_vel</command_topic>
-      <!-- remapping>/cmd_vel:=/cmd_vel</remapping -->
+      <max_wheel_torque>200.0</max_wheel_torque>
+      <max_wheel_acceleration>2.0</max_wheel_acceleration>
 
       <!-- output -->
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
-
-      <odometry_topic>odom</odometry_topic>
-      <!-- remapping>/odom:=/odom</remapping -->
+      <publish_wheel_tf>false</publish_wheel_tf>
 
       <odometry_frame>odom</odometry_frame>
       <robot_base_frame>base_footprint</robot_base_frame>
-      <!--odometry_source>1</odometry_source -->
-
+      
     </plugin>
   </gazebo>
 
@@ -726,8 +723,7 @@
       <robot_param_node>robot_state_publisher_node</robot_param_node>
     </plugin>
   </gazebo> -->
-
-   
+  <xacro:include filename="$(find amrj16_description)/urdf/amrj16_plugins.xacro" />
 </robot>
 
 
